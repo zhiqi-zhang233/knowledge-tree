@@ -21,16 +21,24 @@ export function childrenOf(document: TreeDocument, nodeId: string): KnowledgeNod
 
 export function relatedByType(document: TreeDocument, nodeId: string, type: EdgeType): KnowledgeNode[] {
   if (type === "prerequisite") {
-    return document.edges
-      .filter((edge) => edge.type === "prerequisite" && edge.targetNodeId === nodeId)
-      .map((edge) => getNode(document, edge.sourceNodeId))
-      .filter(Boolean) as KnowledgeNode[];
+    const ids = document.edges
+      .filter(
+        (edge) =>
+          (edge.type === "prerequisite" && edge.targetNodeId === nodeId) ||
+          (edge.type === "successor" && edge.targetNodeId === nodeId),
+      )
+      .map((edge) => edge.sourceNodeId);
+    return uniqueNodes(ids.map((id) => getNode(document, id)).filter(Boolean) as KnowledgeNode[]);
   }
   if (type === "successor") {
-    return document.edges
-      .filter((edge) => edge.type === "successor" && edge.sourceNodeId === nodeId)
-      .map((edge) => getNode(document, edge.targetNodeId))
-      .filter(Boolean) as KnowledgeNode[];
+    const ids = document.edges
+      .filter(
+        (edge) =>
+          (edge.type === "successor" && edge.sourceNodeId === nodeId) ||
+          (edge.type === "prerequisite" && edge.sourceNodeId === nodeId),
+      )
+      .map((edge) => edge.targetNodeId);
+    return uniqueNodes(ids.map((id) => getNode(document, id)).filter(Boolean) as KnowledgeNode[]);
   }
   return [];
 }
@@ -65,12 +73,27 @@ export function visibleGraph(document: TreeDocument, selectedNodeId: string, vie
   ]);
   const edges = document.edges.filter(
     (edge) =>
-      ((edge.type === "prerequisite" && edge.targetNodeId === selected.id) ||
-        (edge.type === "successor" && edge.sourceNodeId === selected.id)) &&
+      isHorizontalEdgeForNode(edge, selected.id) &&
       ids.has(edge.sourceNodeId) &&
       ids.has(edge.targetNodeId),
   );
   return { nodes: document.nodes.filter((node) => ids.has(node.id)), edges };
+}
+
+function isHorizontalEdgeForNode(edge: KnowledgeEdge, nodeId: string): boolean {
+  return (
+    ((edge.type === "prerequisite" || edge.type === "successor") &&
+      (edge.sourceNodeId === nodeId || edge.targetNodeId === nodeId))
+  );
+}
+
+function uniqueNodes(nodes: KnowledgeNode[]): KnowledgeNode[] {
+  const seen = new Set<string>();
+  return nodes.filter((node) => {
+    if (seen.has(node.id)) return false;
+    seen.add(node.id);
+    return true;
+  });
 }
 
 export function edgeLabel(edge: KnowledgeEdge): string {

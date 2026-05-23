@@ -1,7 +1,7 @@
 {
   "name": "knowledge-tree-workspace",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter @knowledge-tree/web dev",
@@ -10,6 +10,7 @@
     "desktop:dist": "pnpm --filter @knowledge-tree/web build && pnpm --filter @knowledge-tree/desktop dist",
     "build": "pnpm --filter @knowledge-tree/web build",
     "preview": "pnpm --filter @knowledge-tree/web preview",
+    "test": "pnpm --filter @knowledge-tree/web test",
     "typecheck": "pnpm --filter @knowledge-tree/web typecheck",
     "lint": "pnpm --filter @knowledge-tree/web lint"
   },

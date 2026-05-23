@@ -150,3 +150,39 @@
 ### 后续
 
 - 后续可补应用图标、代码签名、自动更新和 GitHub Releases 发布流程。
+
+## 2026-05-23
+
+### 摘要
+
+- 修复横向前置/后置关系只按单向边读取的问题。
+- 现在 `successor` 边在目标节点视角会被识别为前置关系，`prerequisite` 边在来源节点视角会被识别为后置关系。
+- 补充 `graphSelectors` 单元测试，覆盖新增后置节点、新增前置节点和双关系去重。
+- 新增 `test` 命令，方便每次关系逻辑修改后自动回归。
+- 更新 AI 协作规则，要求功能修改交付前必须做对应自动化或浏览器回归验证。
+- 版本号更新为 `0.1.1`，用于生成修复后的桌面安装包。
+
+### 涉及文件
+
+- `AI_SYSTEM_PROMPT.md`
+- `DEVELOPMENT_LOG.md`
+- `package.json`
+- `pnpm-lock.yaml`
+- `apps/web/package.json`
+- `apps/web/src/lib/graphSelectors.ts`
+- `apps/web/src/lib/graphSelectors.test.ts`
+- `apps/desktop/package.json`
+
+### 验证
+
+- 运行 `pnpm --filter @knowledge-tree/web test`，3 个单元测试通过。
+- 运行 `pnpm --filter @knowledge-tree/web typecheck`，通过。
+- 运行 `pnpm --filter @knowledge-tree/web build`，通过；仍有 Vite 首包大小警告。
+- 浏览器回归验证：右键“机器学习”新增后置节点后，进入“新后置节点”，资料卡显示 `前置：机器学习`。
+- 浏览器回归验证：右键“机器学习”新增前置节点后，进入“新前置节点”，资料卡显示 `后置：机器学习`。
+- 运行 Electron Builder 生成 Windows 安装包，通过。
+- 启动 `apps/desktop/release/win-unpacked/知识树画布.exe`，窗口正常打开并响应。
+
+### 后续
+
+- 可以继续补充拖拽连线建立关系的端到端测试。
