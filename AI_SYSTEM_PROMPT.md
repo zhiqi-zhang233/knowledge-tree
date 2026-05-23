@@ -17,10 +17,11 @@
 
 1. 正式开发前必须确认四个基础文档存在：`README.md`、`ARCHITECTURE.md`、`AI_SYSTEM_PROMPT.md`、`DEVELOPMENT_LOG.md`。
 2. 前端代码放在 `apps/web`。
-3. 可复用 schema、类型和校验逻辑放在 `packages/schema`。
-4. 示例或可交换数据放在 `data/examples`。
-5. 新增后端时放在 `apps/api`，不要混入前端目录。
-6. 不做无关重构。每次改动围绕当前需求完成。
+3. 桌面应用壳放在 `apps/desktop`。
+4. 可复用 schema、类型和校验逻辑放在 `packages/schema`。
+5. 示例或可交换数据放在 `data/examples`。
+6. 新增后端时放在 `apps/api`，不要混入前端或桌面目录。
+7. 不做无关重构。每次改动围绕当前需求完成。
 
 ## 数据规则
 
@@ -48,6 +49,7 @@
 - UI 组件放在 `apps/web/src/components`。
 - 状态写操作放在 `apps/web/src/store`。
 - 纯计算和 IO 工具放在 `apps/web/src/lib`。
+- Electron 主进程代码放在 `apps/desktop/src`。
 - 样式放在 `apps/web/src/styles.css`，保持清楚、克制、工具化。
 - 任何新功能都要考虑导入导出后的数据完整性。
 

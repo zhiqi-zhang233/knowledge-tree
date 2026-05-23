@@ -13,7 +13,7 @@
 
 ## 技术栈
 
-第一版使用纯前端本地应用，不引入后端服务。
+第一版使用前端本地应用加桌面壳，不引入后端服务。
 
 - Vite：开发服务器和前端构建。
 - React：组件化 UI。
@@ -23,12 +23,17 @@
 - Dexie：IndexedDB 封装，用于浏览器本地持久化。
 - Zod：JSON schema 校验，保护导入数据和后续迁移。
 - pnpm workspace：管理 `apps` 和 `packages`。
+- Electron：把前端应用封装为 Windows 桌面软件和安装包。
 
 ## 目录结构
 
 ```text
 E:\知识树
 ├─ apps/
+│  ├─ desktop/
+│  │  ├─ package.json
+│  │  └─ src/
+│  │     └─ main.cjs
 │  └─ web/
 │     ├─ index.html
 │     ├─ package.json
@@ -72,6 +77,8 @@ E:\知识树
 `apps/web/src/lib` 是无 UI 工具层。`graphSelectors.ts` 根据当前节点和视图模式计算可见节点与边；`download.ts` 负责 JSON 导入导出；`db.ts` 封装 IndexedDB。
 
 `apps/web/src/components` 是交互层。`Sidebar` 管理知识树列表；`GraphCanvas` 管理关系画布；`Inspector` 管理节点资料卡；`KnowledgeNode` 定义画布上的节点外观。
+
+`apps/desktop` 是桌面应用壳。开发时加载 `http://127.0.0.1:5173`，正式打包后加载 `apps/web/dist` 生成的静态文件。Windows 安装包由 Electron Builder 生成。
 
 ## 数据模型
 
@@ -164,7 +171,7 @@ type ResourceLink = {
 
 ## 后端边界
 
-第一版没有后端。后续如果需要账号、云同步、团队协作或多端同步，可以新增：
+第一版没有后端。桌面应用仍然使用浏览器内核中的 IndexedDB 保存本机数据。后续如果需要账号、云同步、团队协作或多端同步，可以新增：
 
 ```text
 apps/api/       API 服务

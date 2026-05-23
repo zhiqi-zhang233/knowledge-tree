@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter @knowledge-tree/web dev",
+    "desktop:dev": "pnpm --filter @knowledge-tree/desktop dev",
+    "desktop:pack": "pnpm --filter @knowledge-tree/web build && pnpm --filter @knowledge-tree/desktop pack",
+    "desktop:dist": "pnpm --filter @knowledge-tree/web build && pnpm --filter @knowledge-tree/desktop dist",
     "build": "pnpm --filter @knowledge-tree/web build",
     "preview": "pnpm --filter @knowledge-tree/web preview",
     "typecheck": "pnpm --filter @knowledge-tree/web typecheck",

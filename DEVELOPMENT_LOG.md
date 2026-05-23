@@ -114,3 +114,39 @@
 ### 后续
 
 - 远程 GitHub 仓库创建需要确认仓库名和公开性，或先安装 GitHub CLI。
+
+## 2026-05-23
+
+### 摘要
+
+- 新增 Electron 桌面应用壳 `apps/desktop`。
+- Web 构建改为相对资源路径，保证桌面应用从本地文件加载静态资源。
+- 新增 Windows NSIS 安装包配置，支持生成用户可安装的 `.exe`。
+- 构建生成 `apps/desktop/release/知识树画布 Setup 0.1.0.exe`。
+- 验证未安装版桌面程序可打开，窗口标题为“知识树画布”，进程正常响应。
+- 更新 README、架构文档和 AI 协作规则中的桌面应用说明。
+
+### 涉及文件
+
+- `README.md`
+- `ARCHITECTURE.md`
+- `AI_SYSTEM_PROMPT.md`
+- `DEVELOPMENT_LOG.md`
+- `.gitignore`
+- `package.json`
+- `pnpm-lock.yaml`
+- `pnpm-workspace.yaml`
+- `apps/web/vite.config.ts`
+- `apps/desktop/package.json`
+- `apps/desktop/src/main.cjs`
+
+### 验证
+
+- 运行 `pnpm --filter @knowledge-tree/web typecheck`，通过。
+- 运行 `pnpm --filter @knowledge-tree/web build`，通过；仍有 Vite 首包大小警告。
+- 运行 Electron Builder 生成 Windows NSIS 安装包，通过。
+- 启动 `apps/desktop/release/win-unpacked/知识树画布.exe`，窗口正常打开并响应。
+
+### 后续
+
+- 后续可补应用图标、代码签名、自动更新和 GitHub Releases 发布流程。
