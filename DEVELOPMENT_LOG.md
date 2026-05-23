@@ -186,3 +186,39 @@
 ### 后续
 
 - 可以继续补充拖拽连线建立关系的端到端测试。
+
+## 2026-05-23
+
+### 摘要
+
+- 修复节点拖动不够丝滑的问题。
+- 画布节点拖动时先更新 React Flow 本地节点状态，拖动结束后再写入 IndexedDB，避免节点只在松手后跳到新位置。
+- 修复删除节点后视图跳转的问题。
+- 删除非当前节点时保留原选中节点和原视图模式；删除当前节点时只切换到备用节点，但仍保留删除前的视图模式。
+- 抽出删除后的视图选择逻辑并补充单元测试。
+- 版本号更新为 `0.1.2`，用于生成修复后的桌面安装包。
+
+### 涉及文件
+
+- `DEVELOPMENT_LOG.md`
+- `package.json`
+- `apps/desktop/package.json`
+- `apps/web/package.json`
+- `apps/web/src/components/GraphCanvas.tsx`
+- `apps/web/src/store/knowledgeStore.ts`
+- `apps/web/src/lib/deleteSelection.ts`
+- `apps/web/src/lib/deleteSelection.test.ts`
+
+### 验证
+
+- 运行 `pnpm --filter @knowledge-tree/web test`，2 个测试文件、5 个测试用例通过。
+- 运行 `pnpm --filter @knowledge-tree/web typecheck`，通过。
+- 运行 `pnpm --filter @knowledge-tree/web build`，通过；仍有 Vite 首包大小警告。
+- 浏览器回归验证：使用真实拖拽移动“机器学习”节点，节点位置更新且无控制台错误。
+- 删除逻辑通过单元测试覆盖：删除非当前节点后保持横向关系页，删除当前节点后保留原视图模式并选择备用节点。
+- 运行 Electron Builder 生成 Windows 安装包，通过。
+- 启动 `apps/desktop/release/win-unpacked/知识树画布.exe`，窗口正常打开并响应。
+
+### 后续
+
+- 建议把原生 `window.confirm` 删除确认改成应用内弹窗，方便浏览器端删除流程自动化测试。

@@ -3,13 +3,14 @@ import {
   ConnectionLineType,
   Controls,
   ReactFlow,
+  applyNodeChanges,
   type Connection,
   type Edge,
   type Node,
   type NodeChange,
 } from "@xyflow/react";
 import { Plus } from "lucide-react";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { edgeLabel, visibleGraph } from "@/lib/graphSelectors";
 import { useKnowledgeStore } from "@/store/knowledgeStore";
@@ -26,6 +27,7 @@ interface NodeMenu {
 
 export function GraphCanvas() {
   const [nodeMenu, setNodeMenu] = useState<NodeMenu | null>(null);
+  const [flowNodes, setFlowNodes] = useState<Node[]>([]);
   const clickTimer = useRef<number | undefined>(undefined);
   const document = useKnowledgeStore((state) => state.activeDocument());
   const selectedNodeId = useKnowledgeStore((state) => state.selectedNodeId);
@@ -62,6 +64,10 @@ export function GraphCanvas() {
     });
   }, [document, graph.nodes]);
 
+  useEffect(() => {
+    setFlowNodes(nodes);
+  }, [nodes]);
+
   const edges: Edge[] = useMemo(
     () =>
       graph.edges.map((edge) => ({
@@ -77,6 +83,7 @@ export function GraphCanvas() {
   );
 
   function handleNodesChange(changes: NodeChange[]) {
+    setFlowNodes((current) => applyNodeChanges(changes, current));
     for (const change of changes) {
       if (change.type === "position" && change.position && !change.dragging) {
         void updateNodePosition(change.id, change.position.x, change.position.y);
@@ -138,7 +145,7 @@ export function GraphCanvas() {
 
       <div className="flow-shell">
         <ReactFlow
-          nodes={nodes}
+          nodes={flowNodes}
           edges={edges}
           nodeTypes={nodeTypes}
           fitView

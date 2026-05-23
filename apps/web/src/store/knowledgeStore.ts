@@ -11,7 +11,8 @@ import { create } from "zustand";
 
 import { defaultTree } from "@/data/defaultTree";
 import { deleteTreeDocument, listTreeDocuments, saveTreeDocument } from "@/lib/db";
-import { childrenOf, parentOf, type ViewMode } from "@/lib/graphSelectors";
+import { resolveSelectionAfterSubtreeDelete } from "@/lib/deleteSelection";
+import { childrenOf, type ViewMode } from "@/lib/graphSelectors";
 
 interface HistoryEntry {
   treeId: string;
@@ -329,6 +330,8 @@ export const useKnowledgeStore = create<KnowledgeState>((set, get) => ({
     const activeTreeId = get().activeTreeId;
     const document = get().activeDocument();
     if (!document) return;
+    const previousSelectedNodeId = get().selectedNodeId;
+    const previousViewMode = get().viewMode;
     const ids = collectSubtreeIds(document, nodeId);
     if (ids.size >= document.nodes.length) return;
     await mutateDocument(activeTreeId, (draft) => {
@@ -338,8 +341,18 @@ export const useKnowledgeStore = create<KnowledgeState>((set, get) => ({
       for (const id of ids) delete draft.layout.nodes[id];
       touchTree(draft);
     });
-    const fallback = parentOf(document, nodeId)?.id ?? document.nodes.find((node) => !ids.has(node.id))?.id ?? "";
-    set({ selectedNodeId: fallback, viewMode: fallback ? "vertical" : "horizontal", history: [] });
+    const nextSelection = resolveSelectionAfterSubtreeDelete({
+      document,
+      deletedNodeId: nodeId,
+      deletedIds: ids,
+      previousSelectedNodeId,
+      previousViewMode,
+    });
+    set({
+      selectedNodeId: nextSelection.selectedNodeId,
+      viewMode: nextSelection.viewMode,
+      history: nextSelection.clearHistory ? [] : get().history,
+    });
   },
 
   addResource: async (nodeId, type) => {
