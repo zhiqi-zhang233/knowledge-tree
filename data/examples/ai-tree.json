@@ -1,0 +1,394 @@
+{
+  "schemaVersion": "1.0.0",
+  "tree": {
+    "id": "tree_ai_example",
+    "title": "人工智能知识树示例",
+    "description": "机器学习、深度学习、大语言模型、Agent 等知识路径",
+    "createdAt": "2026-05-23T00:00:00.000Z",
+    "updatedAt": "2026-05-23T00:00:00.000Z"
+  },
+  "nodes": [
+    {
+      "id": "ml",
+      "treeId": "tree_ai_example",
+      "title": "机器学习",
+      "summary": "机器学习关注如何让模型从数据中学习规律，是理解深度学习和大语言模型的前置基础。",
+      "status": "learning",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "statistics",
+      "treeId": "tree_ai_example",
+      "title": "概率统计",
+      "summary": "概率统计用于理解数据分布、不确定性、抽样、估计和假设检验。",
+      "status": "planned",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "linear_algebra",
+      "treeId": "tree_ai_example",
+      "title": "线性代数",
+      "summary": "线性代数提供向量、矩阵、张量和空间变换的语言。",
+      "status": "planned",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "supervised_learning",
+      "treeId": "tree_ai_example",
+      "title": "监督学习",
+      "summary": "监督学习从带标签数据中学习输入到输出的映射。",
+      "status": "learning",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "unsupervised_learning",
+      "treeId": "tree_ai_example",
+      "title": "无监督学习",
+      "summary": "无监督学习不依赖显式标签，常用于聚类、降维和表示学习。",
+      "status": "planned",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "deep_learning",
+      "treeId": "tree_ai_example",
+      "title": "深度学习",
+      "summary": "深度学习通过多层神经网络学习复杂表示。",
+      "status": "learning",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "neural_network",
+      "treeId": "tree_ai_example",
+      "title": "神经网络基础",
+      "summary": "神经网络基础包括前向传播、反向传播、激活函数、损失函数和优化器。",
+      "status": "learning",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "transformer",
+      "treeId": "tree_ai_example",
+      "title": "Transformer",
+      "summary": "Transformer 通过自注意力机制建模序列中不同位置的关系。",
+      "status": "learning",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "llm",
+      "treeId": "tree_ai_example",
+      "title": "大语言模型",
+      "summary": "大语言模型是在大规模语料上训练的生成式模型。",
+      "status": "learning",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "pretraining",
+      "treeId": "tree_ai_example",
+      "title": "预训练",
+      "summary": "预训练让模型在大规模数据上学习通用语言规律。",
+      "status": "learning",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "post_training",
+      "treeId": "tree_ai_example",
+      "title": "后训练",
+      "summary": "后训练让模型更符合人类指令和产品目标。",
+      "status": "planned",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "rag",
+      "treeId": "tree_ai_example",
+      "title": "RAG",
+      "summary": "RAG 把检索和生成结合起来，让模型回答时引用外部知识。",
+      "status": "learning",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "evaluation",
+      "treeId": "tree_ai_example",
+      "title": "模型评估",
+      "summary": "模型评估用于判断大语言模型是否可靠。",
+      "status": "planned",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "agent",
+      "treeId": "tree_ai_example",
+      "title": "Agent",
+      "summary": "Agent 把模型能力、工具调用、任务规划、记忆和执行反馈组合起来。",
+      "status": "planned",
+      "tags": [],
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_statistics_ml_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "statistics",
+      "targetNodeId": "ml",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_linear_algebra_ml_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "linear_algebra",
+      "targetNodeId": "ml",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_ml_supervised_learning_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "ml",
+      "targetNodeId": "supervised_learning",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_ml_unsupervised_learning_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "ml",
+      "targetNodeId": "unsupervised_learning",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_ml_deep_learning_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "ml",
+      "targetNodeId": "deep_learning",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_linear_algebra_deep_learning_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "linear_algebra",
+      "targetNodeId": "deep_learning",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_deep_learning_neural_network_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "deep_learning",
+      "targetNodeId": "neural_network",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_deep_learning_transformer_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "deep_learning",
+      "targetNodeId": "transformer",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_neural_network_transformer_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "neural_network",
+      "targetNodeId": "transformer",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_ml_llm_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "ml",
+      "targetNodeId": "llm",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_deep_learning_llm_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "deep_learning",
+      "targetNodeId": "llm",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_transformer_llm_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "transformer",
+      "targetNodeId": "llm",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_llm_pretraining_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "llm",
+      "targetNodeId": "pretraining",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_llm_post_training_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "llm",
+      "targetNodeId": "post_training",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_llm_rag_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "llm",
+      "targetNodeId": "rag",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_llm_evaluation_parent_child",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "llm",
+      "targetNodeId": "evaluation",
+      "type": "parent_child",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_llm_agent_successor",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "llm",
+      "targetNodeId": "agent",
+      "type": "successor",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_rag_agent_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "rag",
+      "targetNodeId": "agent",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_post_training_agent_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "post_training",
+      "targetNodeId": "agent",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "edge_evaluation_agent_prerequisite",
+      "treeId": "tree_ai_example",
+      "sourceNodeId": "evaluation",
+      "targetNodeId": "agent",
+      "type": "prerequisite",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    }
+  ],
+  "resources": [
+    {
+      "id": "resource_ml_note_1",
+      "treeId": "tree_ai_example",
+      "nodeId": "ml",
+      "type": "note",
+      "title": "我的机器学习学习笔记",
+      "url": "https://example.com/ml-notes",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "resource_llm_note_1",
+      "treeId": "tree_ai_example",
+      "nodeId": "llm",
+      "type": "note",
+      "title": "LLM 面试与学习笔记",
+      "url": "https://example.com/llm-notes",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "resource_llm_external_openai",
+      "treeId": "tree_ai_example",
+      "nodeId": "llm",
+      "type": "external",
+      "title": "OpenAI Documentation",
+      "url": "https://platform.openai.com/docs",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    },
+    {
+      "id": "resource_llm_external_hf",
+      "treeId": "tree_ai_example",
+      "nodeId": "llm",
+      "type": "external",
+      "title": "Hugging Face LLM Course",
+      "url": "https://huggingface.co/learn/llm-course",
+      "createdAt": "2026-05-23T00:00:00.000Z",
+      "updatedAt": "2026-05-23T00:00:00.000Z"
+    }
+  ],
+  "layout": {
+    "nodes": {
+      "statistics": { "nodeId": "statistics", "x": 120, "y": 250 },
+      "linear_algebra": { "nodeId": "linear_algebra", "x": 120, "y": 410 },
+      "ml": { "nodeId": "ml", "x": 460, "y": 330 },
+      "supervised_learning": { "nodeId": "supervised_learning", "x": 820, "y": 150 },
+      "unsupervised_learning": { "nodeId": "unsupervised_learning", "x": 820, "y": 270 },
+      "deep_learning": { "nodeId": "deep_learning", "x": 820, "y": 430 },
+      "neural_network": { "nodeId": "neural_network", "x": 1140, "y": 360 },
+      "transformer": { "nodeId": "transformer", "x": 1140, "y": 500 },
+      "llm": { "nodeId": "llm", "x": 1460, "y": 410 },
+      "pretraining": { "nodeId": "pretraining", "x": 1780, "y": 170 },
+      "post_training": { "nodeId": "post_training", "x": 1780, "y": 300 },
+      "rag": { "nodeId": "rag", "x": 1780, "y": 430 },
+      "evaluation": { "nodeId": "evaluation", "x": 1780, "y": 560 },
+      "agent": { "nodeId": "agent", "x": 2100, "y": 430 }
+    }
+  }
+}

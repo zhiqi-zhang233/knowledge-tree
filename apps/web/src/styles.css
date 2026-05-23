@@ -1,0 +1,504 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: #f6f2ea;
+  color: #18221f;
+  --surface: #fffdf8;
+  --surface-strong: #ffffff;
+  --line: #ded4c4;
+  --line-strong: #cbbbaa;
+  --text-muted: #67736f;
+  --green: #2d776d;
+  --green-dark: #215a53;
+  --blue: #38668f;
+  --red: #b34d3e;
+  --shadow: 0 12px 28px rgba(53, 45, 35, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 1100px;
+  min-height: 100vh;
+  background: #f6f2ea;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface-strong);
+  color: #17211e;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--line-strong);
+}
+
+input,
+select,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fffefb;
+  color: #18221f;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(45, 119, 109, 0.14);
+}
+
+.app-loading {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  gap: 10px;
+  color: var(--green-dark);
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 284px minmax(520px, 1fr) 360px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar,
+.inspector {
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+  overflow: auto;
+}
+
+.inspector {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 18px 16px;
+}
+
+.brand-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.brand h1,
+.canvas-toolbar h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.brand h1 {
+  font-size: 22px;
+  line-height: 1.1;
+}
+
+.brand p,
+.eyebrow,
+.muted {
+  color: var(--text-muted);
+}
+
+.brand p {
+  margin: 3px 0 0;
+  font-size: 13px;
+}
+
+.sidebar-actions {
+  display: grid;
+  grid-template-columns: 1fr 42px 42px;
+  gap: 8px;
+  padding: 4px 18px 18px;
+}
+
+.primary,
+.secondary,
+.ghost,
+.mini-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 14px;
+}
+
+.primary {
+  border-color: var(--green);
+  background: var(--green);
+  color: #fff;
+  font-weight: 700;
+}
+
+.primary:hover:not(:disabled) {
+  border-color: var(--green-dark);
+  background: var(--green-dark);
+}
+
+.secondary.active,
+.toolbar-actions button.active {
+  border-color: var(--green);
+  background: rgba(45, 119, 109, 0.1);
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.ghost,
+.secondary {
+  background: #f8f3ea;
+}
+
+.icon-button {
+  width: 42px;
+  padding: 0;
+}
+
+.tree-list {
+  display: grid;
+  gap: 6px;
+  padding: 0 14px 24px;
+}
+
+.tree-list-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.tree-list-item span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-list-item.active {
+  border-color: #1f80da;
+  background: #cfe7f2;
+}
+
+.canvas-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-width: 0;
+  background: #f4efe6;
+}
+
+.canvas-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.92);
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.canvas-toolbar h2 {
+  font-size: 24px;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toolbar-actions button,
+.toolbar-actions select {
+  min-height: 38px;
+  padding: 0 12px;
+}
+
+.flow-shell {
+  position: relative;
+  min-height: 0;
+  background-color: #fbf7ef;
+  background-image:
+    linear-gradient(rgba(104, 91, 72, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(104, 91, 72, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.react-flow {
+  background: transparent;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2.2;
+}
+
+.edge-parent_child .react-flow__edge-path {
+  stroke: var(--green);
+}
+
+.edge-prerequisite .react-flow__edge-path {
+  stroke: var(--blue);
+}
+
+.edge-successor .react-flow__edge-path {
+  stroke: var(--red);
+}
+
+.edge-related .react-flow__edge-path {
+  stroke: #756c5d;
+}
+
+.react-flow__edge-textbg {
+  fill: #fffdf8;
+}
+
+.knowledge-node {
+  display: grid;
+  gap: 5px;
+  width: 148px;
+  min-height: 72px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface-strong);
+  box-shadow: 0 8px 18px rgba(55, 47, 36, 0.12);
+}
+
+.knowledge-node.selected,
+.react-flow__node.selected .knowledge-node {
+  border-color: var(--green);
+  box-shadow:
+    0 0 0 3px rgba(45, 119, 109, 0.16),
+    0 8px 18px rgba(55, 47, 36, 0.12);
+}
+
+.knowledge-node strong {
+  overflow: hidden;
+  color: #121b18;
+  font-size: 14px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.knowledge-node span {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.canvas-status {
+  min-height: 40px;
+  padding: 11px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.inspector {
+  padding: 18px;
+}
+
+.inspector-header {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.title-input {
+  width: 100%;
+  border-color: transparent;
+  background: transparent;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.title-input:focus {
+  border-color: var(--line);
+  background: #fffefb;
+}
+
+.inspector select,
+.inspector textarea,
+.resource-row input {
+  width: 100%;
+}
+
+.inspector-section {
+  display: grid;
+  gap: 10px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.section-title h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.mini-button {
+  min-height: 30px;
+  padding: 0 10px;
+  background: #f8f3ea;
+  font-size: 13px;
+}
+
+textarea {
+  min-height: 108px;
+  padding: 10px;
+  resize: vertical;
+}
+
+.relation-summary {
+  display: grid;
+  gap: 7px;
+  color: #33403c;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.full {
+  width: 100%;
+}
+
+.resource-list {
+  display: grid;
+  gap: 9px;
+}
+
+.resource-row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fffefb;
+}
+
+.resource-row svg {
+  margin-top: 8px;
+  color: var(--green);
+}
+
+.resource-row div {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.resource-row input {
+  min-height: 32px;
+  padding: 0 9px;
+}
+
+.muted {
+  margin: 0;
+  font-size: 13px;
+}
+
+.empty-panel {
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+}
+
+.context-menu {
+  position: fixed;
+  z-index: 20;
+  display: grid;
+  gap: 4px;
+  min-width: 176px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+}
+
+.context-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  min-height: 34px;
+  border-color: transparent;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.context-menu button:hover:not(:disabled) {
+  background: #f5eee3;
+}
+
+.context-menu .danger {
+  color: var(--red);
+}
+
+@media (max-width: 1180px) {
+  body {
+    min-width: 960px;
+  }
+
+  .app-shell {
+    grid-template-columns: 246px minmax(420px, 1fr) 320px;
+  }
+}
